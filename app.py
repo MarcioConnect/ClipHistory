@@ -200,7 +200,7 @@ class ClipHistoryApp:
             padx=14, pady=8,
         )
         self.pause_button.pack(side="left", padx=(10, 0))
-        tk.Button(controls, text="Aparência", command=self._show_settings,
+        tk.Button(controls, text="Configurações", command=self._show_settings,
                   bg=BG, fg=MUTED, activebackground=BG, activeforeground=TEXT,
                   relief="flat", bd=0, cursor="hand2", font=("Segoe UI", 9)).pack(side="right")
         self.footer_status = tk.Label(main, text=self.status, bg=BG, fg=MUTED,
