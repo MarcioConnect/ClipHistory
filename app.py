@@ -154,7 +154,6 @@ class ClipHistoryApp:
         self.clear_button.pack(side="right")
 
         history_shell = tk.Frame(main, bg=BG)
-        history_shell.pack(fill="both", expand=True)
         self.canvas = tk.Canvas(history_shell, bg=BG, highlightthickness=0, bd=0)
         scrollbar = tk.Scrollbar(history_shell, orient="vertical", command=self.canvas.yview,
                                   bg=BG, troughcolor=BG, activebackground=BORDER,
@@ -173,7 +172,6 @@ class ClipHistoryApp:
             bg=BG, fg=MUTED, justify="left", anchor="w", font=("Segoe UI", 10), pady=20,
         )
         detail_box = tk.Frame(main, bg=SURFACE_RAISED, padx=10, pady=7)
-        detail_box.pack(fill="x", pady=(10, 0))
         self.detail_text = tk.Text(
             detail_box, height=2, wrap="word", bg=SURFACE_RAISED, fg=TEXT,
             insertbackground=ACCENT, relief="flat", bd=0,
@@ -185,7 +183,6 @@ class ClipHistoryApp:
         self.detail_size = tk.Label(main, text="", bg=BG, fg=MUTED, font=("Segoe UI", 8))
         self.detail_time = tk.Label(main, text="", bg=BG, fg=MUTED, font=("Segoe UI", 8))
         controls = tk.Frame(main, bg=BG)
-        controls.pack(fill="x", pady=(12, 0))
         self.copy_button = tk.Button(
             controls, text="Copiar", command=self._copy_selected,
             bg=ACCENT, fg="#ffffff", activebackground="#2867bc", activeforeground="#ffffff",
@@ -201,11 +198,16 @@ class ClipHistoryApp:
         )
         self.pause_button.pack(side="left", padx=(10, 0))
         tk.Button(controls, text="Configurações", command=self._show_settings,
-                  bg=BG, fg=MUTED, activebackground=BG, activeforeground=TEXT,
-                  relief="flat", bd=0, cursor="hand2", font=("Segoe UI", 9)).pack(side="right")
+                  bg=SURFACE_RAISED, fg=TEXT, activebackground=SURFACE_SELECTED,
+                  activeforeground=TEXT, relief="flat", bd=0, cursor="hand2",
+                  font=("Segoe UI", 9), padx=14, pady=8).pack(side="right")
         self.footer_status = tk.Label(main, text=self.status, bg=BG, fg=MUTED,
-                                      font=("Segoe UI", 8))
-        self.footer_status.pack(anchor="w", pady=(7, 0))
+                                      anchor="w", font=("Segoe UI", 8))
+
+        self.footer_status.pack(side="bottom", fill="x", pady=(7, 0))
+        controls.pack(side="bottom", fill="x", pady=(12, 0))
+        detail_box.pack(side="bottom", fill="x", pady=(10, 0))
+        history_shell.pack(fill="both", expand=True)
 
     def _add_nav(self, key: str, text: str, command: object) -> None:
         button = tk.Button(
