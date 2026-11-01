@@ -2,6 +2,10 @@
 
 Histórico de área de transferência para Windows, feito em Python com Tkinter e sem dependências externas. Guarda até 100 textos de até 10.000 caracteres enquanto está rodando e permite buscar, copiar de novo, pausar a captura e limpar tudo.
 
+## Baixar
+
+Se você só quer usar, baixe o `ClipHistory.exe` na [última release](https://github.com/MarcioConnect/ClipHistory/releases/latest) e execute. Não precisa de Python nem de instalação. O Windows pode avisar que o app não é assinado: clique em **Mais informações → Executar assim mesmo**.
+
 ## Recursos
 
 - Captura automática do clipboard a cada meio segundo
